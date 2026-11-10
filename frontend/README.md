@@ -75,8 +75,8 @@ Run `npm run build` and `npm test`. The tests cover role views, scheduling confl
 
 ## Saved design previews
 
-- [Tutor overview](docs/previews/tutor-overview.png)
+- [Tutor overview](docs/previews/personal-tutor-assistant-overview.jpg)
 - [Mobile meetings](docs/previews/mobile-meetings.png)
-- [Sign-in design](docs/previews/sign-in.jpg)
+- [Sign-in design](docs/previews/personal-tutor-assistant-sign-in.jpg)
 
 Verified: production build and 12 frontend tests pass. Browser checks covered a 1440px desktop and 390px mobile viewport, schedule creation, student request submission, officer follow-up changes, global search, sample reset, and the sign-in layout. Mobile meeting-page content fits its viewport without horizontal page overflow.

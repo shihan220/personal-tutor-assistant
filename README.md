@@ -39,4 +39,6 @@ The frontend regression suite covers role views, scheduling conflicts, requests,
 
 ## Design preview
 
-![Tutor overview](frontend/docs/previews/tutor-overview.png)
+Personal Tutor Assistant with the updated PTA icon and app name.
+
+![Personal Tutor Assistant tutor overview](frontend/docs/previews/personal-tutor-assistant-overview.jpg)
