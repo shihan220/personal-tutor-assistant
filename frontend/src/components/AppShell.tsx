@@ -3,7 +3,6 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
   ArrowRight,
   Bell,
-  BookOpen,
   ChevronDown,
   ChevronRight,
   GraduationCap,
@@ -22,6 +21,8 @@ import { fullDate, visibleMeetings, visiblePeople } from "../lib/utils";
 import { Avatar, Button, EmptyState, Modal } from "./ui";
 import type { Role } from "../types";
 import { navigation } from "../data/navigation";
+import { APP_NAME } from "../lib/branding";
+import { Brand } from "./Brand";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { data, role, setRole } = useWorkspace();
@@ -89,7 +90,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     return () => window.removeEventListener("keydown", handler);
   }, []);
   useEffect(() => {
-    document.title = `${active} · Tutorly`;
+    document.title = `${active} · ${APP_NAME}`;
     window.scrollTo({ top: 0 });
   }, [active]);
   return (
@@ -112,15 +113,11 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="px-6 pt-8">
           <Link
             to="/"
-            className="flex items-center gap-2.5"
+            aria-label={`${APP_NAME} home`}
+            className="block text-white"
             onClick={() => setMobileOpen(false)}
           >
-            <span className="flex size-9 items-center justify-center rounded-xl bg-[#b6a4e8] text-[#25202f]">
-              <BookOpen size={21} strokeWidth={2.1} />
-            </span>
-            <span className="font-heading text-[25px] font-bold tracking-[-1.2px] text-white">
-              tutorly<span className="text-[#b6a4e8]">.</span>
-            </span>
+            <Brand />
           </Link>
           <p className="mt-2 pl-0.5 text-[10px] tracking-wide text-[#9c98a6]">
             A little more connected.
