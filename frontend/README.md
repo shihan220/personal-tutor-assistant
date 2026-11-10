@@ -1,4 +1,4 @@
-# Tutorly frontend
+# Personal Tutor Assistant frontend
 
 React + TypeScript + Tailwind CSS, built with Vite. This phase contains only the browser application. Flask is the agreed future backend; no Flask application, database, API, server authentication or external messaging is implemented.
 
@@ -20,7 +20,16 @@ Open the Local URL printed by Vite, normally `http://localhost:5173`. For a prod
 
 The app opens on the tutor overview. Use the **Preview role** selector to explore the student, tutor, officer and administrator experiences. The selected preview role and fictional records persist in browser storage. Settings -> Reset sample data restores the sample records. Settings -> View sign-in design opens `/login`; any preview password works and nothing is authenticated or transmitted.
 
-The sample clock is 3 November 2026 at 08:00 London time, so screenshots and upcoming/past views are reproducible. All sample identities use `example.edu` addresses. The provisional Tutorly name, logo, fonts and colour system can be changed centrally.
+The sample clock is 3 November 2026 at 08:00 London time, so screenshots and upcoming/past views are reproducible. All sample identities use `example.edu` addresses. The Personal Tutor Assistant name and icon are configured in `src/lib/branding.ts` and displayed by the shared `Brand` component. The icon in `public/pta-icon.png` excludes the caption beneath the supplied logo; the app renders its name as text. Existing browser-storage keys retain their original namespace to preserve saved preview data.
+
+<details>
+<summary>Logo asset preparation</summary>
+
+The built-in imagegen tool prepared `public/pta-icon.png` from the supplied `PTA-03.png`. The result was resized to 512px for the app and 64px for `public/favicon.png`. Final prompt:
+
+> Use case: precise-object-edit. Edit the supplied existing PTA brand asset for use as a compact app icon. Remove ONLY the separate "Personal Tutor Assistant" caption beneath the icon. Keep the full original PTA calendar icon with its graduation cap and speech bubble exactly as it is: original shapes, letterforms, smooth clean edges, blue and navy gradients, white details and yellow tassel. Present the complete icon centered, large, on a square pure solid white (#FFFFFF) canvas, with an even small 5% margin around the top, left, right and bottom of the entire icon. The outside background must be pure opaque white, smooth and clean, without texture, halos, colored fringe or shadows. Do not redraw or redesign the logo. No caption or other new text. Keep the PTA monogram as part of the icon.
+
+</details>
 
 | Area             | Interactive frontend coverage                                                                                                                                        |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -68,6 +77,6 @@ Run `npm run build` and `npm test`. The tests cover role views, scheduling confl
 
 - [Tutor overview](docs/previews/tutor-overview.png)
 - [Mobile meetings](docs/previews/mobile-meetings.png)
-- [Sign-in design](docs/previews/sign-in.png)
+- [Sign-in design](docs/previews/sign-in.jpg)
 
 Verified: production build and 12 frontend tests pass. Browser checks covered a 1440px desktop and 390px mobile viewport, schedule creation, student request submission, officer follow-up changes, global search, sample reset, and the sign-in layout. Mobile meeting-page content fits its viewport without horizontal page overflow.

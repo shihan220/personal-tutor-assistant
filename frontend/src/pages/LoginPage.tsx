@@ -1,8 +1,7 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowRight,
-  BookOpen,
   Eye,
   EyeOff,
   HeartHandshake,
@@ -13,6 +12,8 @@ import { useWorkspace } from "../context/workspace";
 import { ROLE_LABELS } from "../data/seed";
 import { Button, Field, Modal } from "../components/ui";
 import type { Role } from "../types";
+import { Brand } from "../components/Brand";
+import { APP_NAME } from "../lib/branding";
 
 export function LoginPage() {
   const { data, setRole } = useWorkspace();
@@ -23,6 +24,9 @@ export function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [recovery, setRecovery] = useState(false);
   const [recoveryDone, setRecoveryDone] = useState(false);
+  useEffect(() => {
+    document.title = `Sign in · ${APP_NAME}`;
+  }, []);
   function submit(e: FormEvent) {
     e.preventDefault();
     setRole(previewRole);
@@ -32,14 +36,7 @@ export function LoginPage() {
   return (
     <main className="grid min-h-screen bg-white lg:grid-cols-2">
       <section className="relative hidden overflow-hidden bg-[#282330] p-14 lg:flex lg:flex-col xl:p-20">
-        <div className="flex items-center gap-3 text-white">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-[#b6a4e8] text-[#25202f]">
-            <BookOpen size={23} />
-          </span>
-          <span className="font-heading text-3xl font-bold tracking-tight">
-            tutorly<span className="text-[#b6a4e8]">.</span>
-          </span>
-        </div>
+        <Brand large className="text-white" />
         <div className="relative z-10 my-auto py-20">
           <span className="mb-8 flex size-14 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#cdb9ef]">
             <HeartHandshake size={28} />
@@ -66,10 +63,7 @@ export function LoginPage() {
       </section>
       <section className="flex items-center justify-center p-6 py-14 sm:p-12">
         <div className="w-full max-w-95">
-          <div className="mb-12 flex items-center gap-2 text-brand lg:hidden">
-            <BookOpen size={26} />
-            <span className="font-heading text-2xl font-bold">tutorly.</span>
-          </div>
+          <Brand large className="mb-12 text-ink lg:hidden" />
           <p className="eyebrow">YOUR PERSONAL TUTORING WORKSPACE</p>
           <h2 className="mt-4 font-heading text-3xl font-bold tracking-tight">
             It’s good to see you.
