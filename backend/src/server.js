@@ -22,3 +22,4 @@ function shutdown(signal) {
 
 process.on('SIGINT', () => shutdown('SIGINT'));
 process.on('SIGTERM', () => shutdown('SIGTERM'));
+// process.on('SIGINFO', () => shutdown('SIGINFO'))
