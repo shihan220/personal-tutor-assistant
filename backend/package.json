@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "persona-tutor-backend",
   "version": "1.0.0",
   "description": "backend folder here, store all backend related code.",
   "main": "index.js",
